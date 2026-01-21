@@ -1,0 +1,73 @@
+<header [class.scrolled]="isScrolled()">
+  <div class="header-container">
+    <!-- Logo -->
+    <a routerLink="/" class="logo" (click)="closeMenu()">
+      <span class="logo-text">Girly</span>
+      <span class="logo-accent">Glow</span>
+    </a>
+
+    <!-- Navigation Desktop -->
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      <ul>
+        @for (link of navLinks; track link.path) {
+          <li>
+            <a 
+              [routerLink]="link.path" 
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: link.exact }"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <!-- CTA Button Desktop -->
+    <a href="tel:0172381004" class="cta-button desktop-only">
+      <app-icon name="phone" size="sm" />
+      <span>Réserver</span>
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <button 
+      class="menu-toggle"
+      [class.open]="isMenuOpen()"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen()"
+      aria-label="Menu de navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav 
+    class="nav-mobile" 
+    [class.open]="isMenuOpen()"
+    aria-label="Navigation mobile"
+  >
+    <ul>
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a 
+            [routerLink]="link.path" 
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            (click)="closeMenu()"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+      <li class="mobile-cta">
+        <a href="tel:0172381004" class="cta-button">
+          <app-icon name="phone" size="sm" />
+          <span>Réserver</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

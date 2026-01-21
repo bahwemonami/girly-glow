@@ -1,0 +1,166 @@
+<!-- Header -->
+<section class="page-header">
+  <div class="container">
+    <h1>Mentions <span class="text-gradient">Légales</span></h1>
+    <p>Informations légales et politique de confidentialité</p>
+  </div>
+</section>
+
+<!-- Content -->
+<section class="legal-content section">
+  <div class="container">
+    <div class="legal-grid">
+      <!-- Sidebar -->
+      <nav class="legal-nav">
+        <h3>Sommaire</h3>
+        <ul>
+          <li><a href="#editeur">Éditeur du site</a></li>
+          <li><a href="#hebergement">Hébergement</a></li>
+          <li><a href="#propriete">Propriété intellectuelle</a></li>
+          <li><a href="#donnees">Protection des données</a></li>
+          <li><a href="#cookies">Cookies</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="legal-main">
+        <!-- Éditeur -->
+        <article id="editeur" class="legal-section">
+          <h2>1. Éditeur du site</h2>
+          <p>Le site <strong>Girly Glow</strong> est édité par :</p>
+          <div class="info-block">
+            <p><strong>{{ salonInfo.name }}</strong></p>
+            <p>Centre de Beauté</p>
+            <p>{{ salonInfo.address.street }}</p>
+            <p>{{ salonInfo.address.postalCode }} {{ salonInfo.address.city }}, {{ salonInfo.address.country }}</p>
+            <p>Téléphone : {{ salonInfo.phones[0] }}</p>
+            <p>Email : {{ salonInfo.email }}</p>
+          </div>
+        </article>
+
+        <!-- Hébergement -->
+        <article id="hebergement" class="legal-section">
+          <h2>2. Hébergement</h2>
+          <p>Le site est hébergé par :</p>
+          <div class="info-block">
+            <p><strong>Netlify, Inc.</strong></p>
+            <p>44 Montgomery Street, Suite 300</p>
+            <p>San Francisco, California 94104</p>
+            <p>États-Unis</p>
+          </div>
+        </article>
+
+        <!-- Propriété intellectuelle -->
+        <article id="propriete" class="legal-section">
+          <h2>3. Propriété intellectuelle</h2>
+          <p>
+            L'ensemble du contenu de ce site (textes, images, graphismes, logo, icônes, etc.) 
+            est la propriété exclusive de {{ salonInfo.name }}, à l'exception des marques, 
+            logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.
+          </p>
+          <p>
+            Toute reproduction, distribution, modification, adaptation, retransmission ou 
+            publication de ces différents éléments est strictement interdite sans l'accord 
+            écrit préalable de {{ salonInfo.name }}.
+          </p>
+        </article>
+
+        <!-- Protection des données -->
+        <article id="donnees" class="legal-section">
+          <h2>4. Protection des données personnelles (RGPD)</h2>
+          <h3>4.1 Collecte des données</h3>
+          <p>
+            Les données personnelles collectées sur ce site sont uniquement utilisées 
+            dans le cadre de la gestion des demandes de rendez-vous et de contact.
+          </p>
+          <p>Les données collectées peuvent inclure :</p>
+          <ul>
+            <li>Nom et prénom</li>
+            <li>Adresse email</li>
+            <li>Numéro de téléphone</li>
+            <li>Message de demande</li>
+          </ul>
+
+          <h3>4.2 Finalité du traitement</h3>
+          <p>Vos données sont utilisées pour :</p>
+          <ul>
+            <li>Répondre à vos demandes de contact</li>
+            <li>Gérer vos rendez-vous</li>
+            <li>Vous informer de nos offres (avec votre consentement)</li>
+          </ul>
+
+          <h3>4.3 Vos droits</h3>
+          <p>
+            Conformément au Règlement Général sur la Protection des Données (RGPD), 
+            vous disposez des droits suivants :
+          </p>
+          <ul>
+            <li>Droit d'accès à vos données</li>
+            <li>Droit de rectification</li>
+            <li>Droit à l'effacement</li>
+            <li>Droit à la limitation du traitement</li>
+            <li>Droit à la portabilité des données</li>
+            <li>Droit d'opposition</li>
+          </ul>
+          <p>
+            Pour exercer ces droits, vous pouvez nous contacter à l'adresse : 
+            <a href="mailto:{{ salonInfo.email }}">{{ salonInfo.email }}</a>
+          </p>
+
+          <h3>4.4 Durée de conservation</h3>
+          <p>
+            Vos données personnelles sont conservées pendant une durée de 3 ans 
+            à compter de votre dernier contact avec nous.
+          </p>
+        </article>
+
+        <!-- Cookies -->
+        <article id="cookies" class="legal-section">
+          <h2>5. Politique de cookies</h2>
+          <p>
+            Ce site utilise des cookies pour améliorer votre expérience de navigation. 
+            Un cookie est un petit fichier texte stocké sur votre ordinateur ou appareil mobile.
+          </p>
+          
+          <h3>5.1 Types de cookies utilisés</h3>
+          <ul>
+            <li>
+              <strong>Cookies essentiels :</strong> Nécessaires au fonctionnement du site
+            </li>
+            <li>
+              <strong>Cookies de préférence :</strong> Mémorisation de vos choix (consentement cookies)
+            </li>
+          </ul>
+
+          <h3>5.2 Gestion des cookies</h3>
+          <p>
+            Vous pouvez à tout moment modifier vos préférences en matière de cookies 
+            via les paramètres de votre navigateur.
+          </p>
+        </article>
+
+        <!-- Contact -->
+        <article id="contact" class="legal-section">
+          <h2>6. Contact</h2>
+          <p>
+            Pour toute question concernant ces mentions légales ou la protection de vos données, 
+            vous pouvez nous contacter :
+          </p>
+          <div class="info-block">
+            <p>Par email : <a href="mailto:{{ salonInfo.email }}">{{ salonInfo.email }}</a></p>
+            <p>Par téléphone : {{ salonInfo.phones[0] }}</p>
+            <p>Par courrier : {{ salonInfo.address.street }}, {{ salonInfo.address.postalCode }} {{ salonInfo.address.city }}</p>
+          </div>
+          <a routerLink="/contact" class="btn-primary">
+            Nous contacter
+          </a>
+        </article>
+
+        <p class="last-update">
+          Dernière mise à jour : Janvier {{ currentYear }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

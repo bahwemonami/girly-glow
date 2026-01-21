@@ -1,0 +1,26 @@
+<article class="service-card">
+  <div class="card-content">
+    <h4 class="service-name">{{ prestation.name }}</h4>
+    
+    @if (showDescription && prestation.description) {
+      <p class="service-description">{{ prestation.description }}</p>
+    }
+    
+    <div class="service-info">
+      @if (prestation.duration) {
+        <span class="duration">
+          <app-icon name="timer" size="xs" />
+          {{ prestation.duration }} min
+        </span>
+      }
+      
+      <span class="price">
+        @if (prestation.priceMax) {
+          {{ prestation.price }}€ - {{ prestation.priceMax }}€
+        } @else {
+          {{ prestation.price }}€
+        }
+      </span>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,55 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.service-card {
+  @include card;
+  background: $white;
+  border-left: 3px solid $primary-rose;
+  
+  &:hover {
+    border-left-color: $primary-rose-dark;
+  }
+}
+
+.card-content {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.service-name {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $gray-800;
+  margin: 0;
+  font-family: $font-primary;
+}
+
+.service-description {
+  font-size: $font-size-xs;
+  color: $gray-500;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.service-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: $spacing-sm;
+  padding-top: $spacing-sm;
+  border-top: 1px solid $gray-100;
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-xs;
+  color: $gray-400;
+}
+
+.price {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $primary-rose;
+}

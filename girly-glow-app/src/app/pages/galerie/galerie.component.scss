@@ -1,0 +1,259 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+// Page Header
+.page-header {
+  background: $gradient-hero;
+  padding: calc($spacing-4xl + 80px) 0 $spacing-3xl;
+  text-align: center;
+  color: $white;
+
+  h1 {
+    color: $white;
+    margin-bottom: $spacing-md;
+
+    .text-gradient {
+      color: $secondary-pink-light;
+      -webkit-text-fill-color: $secondary-pink-light;
+    }
+  }
+
+  p {
+    font-size: $font-size-lg;
+    opacity: 0.9;
+  }
+}
+
+// Filters
+.filters-section {
+  background: $white;
+  padding: $spacing-lg 0;
+  position: sticky;
+  top: 80px;
+  z-index: 50;
+  box-shadow: $shadow-sm;
+}
+
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  justify-content: center;
+}
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-lg;
+  background: $white;
+  color: $gray-dark;
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  border: 2px solid $gray-lighter;
+  border-radius: $border-radius-full;
+  cursor: pointer;
+  transition: all $transition-fast;
+  @include focus-visible;
+
+  &:hover {
+    border-color: $primary-magenta;
+    color: $primary-magenta;
+  }
+
+  &.active {
+    background: $gradient-button;
+    color: $white;
+    border-color: transparent;
+  }
+
+  .icon {
+    font-size: $font-size-lg;
+  }
+
+  .label {
+    display: none;
+
+    @include md {
+      display: inline;
+    }
+  }
+}
+
+// Gallery
+.gallery-section {
+  background: $secondary-pink-bg;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include lg {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: none;
+  @include focus-visible;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-base;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba($primary-magenta, 0);
+    @include flex-center;
+    transition: background $transition-base;
+
+    .zoom-icon {
+      font-size: 2rem;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all $transition-base;
+    }
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      background: rgba($primary-magenta, 0.5);
+
+      .zoom-icon {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: $spacing-3xl;
+  color: $gray-medium;
+}
+
+// Lightbox
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  @include flex-center;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: $spacing-lg;
+  right: $spacing-lg;
+  width: 48px;
+  height: 48px;
+  background: rgba($white, 0.1);
+  color: $white;
+  border: none;
+  border-radius: $border-radius-full;
+  font-size: $font-size-3xl;
+  cursor: pointer;
+  transition: all $transition-fast;
+  @include flex-center;
+  @include focus-visible;
+
+  &:hover {
+    background: rgba($white, 0.2);
+  }
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  background: rgba($white, 0.1);
+  color: $white;
+  border: none;
+  border-radius: $border-radius-full;
+  font-size: $font-size-4xl;
+  cursor: pointer;
+  transition: all $transition-fast;
+  @include flex-center;
+  @include focus-visible;
+
+  &:hover {
+    background: rgba($white, 0.2);
+  }
+
+  &.prev {
+    left: $spacing-lg;
+  }
+
+  &.next {
+    right: $spacing-lg;
+  }
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 80vh;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: $border-radius-lg;
+  }
+
+  .lightbox-caption {
+    color: $white;
+    margin-top: $spacing-lg;
+    font-size: $font-size-lg;
+  }
+}
+
+// CTA Section
+.cta-section {
+  background: $gradient-hero;
+  padding: $spacing-3xl 0;
+  text-align: center;
+  color: $white;
+
+  h2 {
+    color: $white;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    opacity: 0.9;
+    margin-bottom: $spacing-xl;
+  }
+
+  .btn-primary {
+    @include button-primary;
+    gap: $spacing-sm;
+  }
+}

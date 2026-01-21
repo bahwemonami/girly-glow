@@ -1,0 +1,188 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-badge">Centre de Beauté</span>
+    <h1>
+      <span class="logo-text">Girly</span>
+      <span class="logo-glow">Glow</span>
+    </h1>
+    <p class="hero-subtitle">
+      Votre espace de bien-être à Paris 20e.<br>
+      Épilation, soins du visage, manucure, massage ayurvédique et henné.
+    </p>
+    <div class="hero-cta">
+      <a href="tel:0172381004" class="btn-primary">
+        <app-icon name="phone" size="sm" />
+        Prendre RDV
+      </a>
+      <a routerLink="/prestations" class="btn-secondary">
+        Nos Prestations
+      </a>
+    </div>
+    <div class="hero-info">
+      <span class="info-item">
+        <app-icon name="clock" size="sm" />
+        7j/7 de 10h à 20h
+      </span>
+      <span class="info-item">
+        <app-icon name="location" size="sm" />
+        Paris 20e
+      </span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Découvrir</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content">
+        <h2>Bienvenue chez <span class="text-gradient">Girly Glow</span></h2>
+        <p class="lead">
+          Votre centre de beauté à Paris 20e où l'art de la beauté rencontre 
+          le bien-être. Nous vous accueillons dans un cadre chaleureux pour 
+          prendre soin de vous.
+        </p>
+        <p>
+          Spécialisées dans l'épilation au fil, les soins du visage ayurvédiques bio, 
+          la manucure et le henné design, nos esthéticiennes vous offrent des prestations 
+          de qualité avec des produits naturels.
+        </p>
+        <div class="about-features">
+          <div class="feature">
+            <app-icon name="sparkle" size="md" />
+            <span>Produits naturels & bio</span>
+          </div>
+          <div class="feature">
+            <app-icon name="heart" size="md" />
+            <span>Personnel qualifié</span>
+          </div>
+          <div class="feature">
+            <app-icon name="clock" size="md" />
+            <span>Ouvert 7j/7</span>
+          </div>
+        </div>
+        <a routerLink="/contact" class="btn-primary">
+          Nous trouver
+        </a>
+      </div>
+      <div class="about-image">
+        <div class="image-wrapper">
+          <img 
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=700&fit=crop" 
+            alt="Salon Girly Glow"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="services section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Nos <span class="text-gradient">Prestations</span></h2>
+      <p>Découvrez notre gamme complète de services pour votre beauté et bien-être</p>
+    </div>
+    
+    <div class="services-grid">
+      @for (category of categories(); track category.id) {
+        <a [routerLink]="['/prestations']" [fragment]="category.id" class="service-item">
+          <span class="service-icon">
+            <app-icon [name]="category.icon" size="xl" />
+          </span>
+          <h3>{{ category.name }}</h3>
+          <p>{{ category.description }}</p>
+          <span class="service-count">{{ category.prestations.length }} prestations</span>
+          <span class="service-arrow">
+            <app-icon name="arrow-right" size="md" />
+          </span>
+        </a>
+      }
+    </div>
+
+    <div class="services-cta">
+      <a routerLink="/prestations" class="btn-primary">
+        Voir toutes nos prestations
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Loyalty Card Section -->
+<section class="loyalty section">
+  <div class="container">
+    <div class="loyalty-card">
+      <div class="loyalty-content">
+        <span class="loyalty-badge">Programme Fidélité</span>
+        <h2>Votre <span class="text-gradient">Carte de Fidélité</span></h2>
+        <p>
+          N'oubliez pas de prendre votre carte de fidélité ! 
+          Cumulez des points à chaque visite et bénéficiez d'avantages exclusifs.
+        </p>
+        <ul class="loyalty-benefits">
+          <li>
+            <span class="check-icon">
+              <app-icon name="check" size="xs" />
+            </span>
+            Remises sur vos prestations
+          </li>
+          <li>
+            <span class="check-icon">
+              <app-icon name="check" size="xs" />
+            </span>
+            Offres spéciales réservées
+          </li>
+          <li>
+            <span class="check-icon">
+              <app-icon name="check" size="xs" />
+            </span>
+            Cadeaux anniversaire
+          </li>
+        </ul>
+        <a routerLink="/contact" class="btn-primary">
+          Demander ma carte
+        </a>
+      </div>
+      <div class="loyalty-visual">
+        <div class="card-preview">
+          <div class="card-front">
+            <span class="card-logo">Girly Glow</span>
+            <span class="card-type">Carte Fidélité</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Prêt(e) à prendre soin de vous ?</h2>
+      <p>Réservez votre rendez-vous dès maintenant</p>
+      <div class="cta-buttons">
+        <a href="tel:0172381004" class="btn-primary btn-large">
+          <app-icon name="phone" size="md" />
+          01 72 38 10 04
+        </a>
+        <a href="tel:0605904101" class="btn-secondary btn-large">
+          <app-icon name="mobile" size="md" />
+          06 05 90 41 01
+        </a>
+      </div>
+      <p class="cta-address">
+        <app-icon name="location" size="md" />
+        31 rue du Borrego, 75020 Paris
+      </p>
+    </div>
+  </div>
+</section>

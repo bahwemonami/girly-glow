@@ -1,0 +1,112 @@
+<!-- Header -->
+<section class="page-header">
+  <div class="container">
+    <h1>Notre <span class="text-gradient">Galerie</span></h1>
+    <p>Découvrez nos réalisations et laissez-vous inspirer</p>
+  </div>
+</section>
+
+<!-- Filters -->
+<section class="filters-section">
+  <div class="container">
+    <div class="category-filter">
+      @for (cat of categories; track cat.id) {
+        <button 
+          class="filter-btn"
+          [class.active]="selectedCategory() === cat.id"
+          (click)="selectCategory(cat.id)"
+        >
+          <app-icon [name]="cat.icon" size="sm" />
+          <span class="label">{{ cat.name }}</span>
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Grid -->
+<section class="gallery-section section">
+  <div class="container">
+    <div class="gallery-grid">
+      @for (item of filteredItems(); track item.id) {
+        <button 
+          class="gallery-item"
+          (click)="openLightbox(item)"
+          [attr.aria-label]="'Voir ' + item.alt"
+        >
+          <img 
+            [src]="item.src" 
+            [alt]="item.alt"
+            loading="lazy"
+          />
+          <div class="overlay">
+            <span class="zoom-icon">
+              <app-icon name="zoom" size="lg" />
+            </span>
+          </div>
+        </button>
+      } @empty {
+        <div class="no-results">
+          <p>Aucune image dans cette catégorie.</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+@if (selectedImage()) {
+  <div 
+    class="lightbox"
+    (click)="closeLightbox()"
+    (keydown.escape)="closeLightbox()"
+    role="dialog"
+    aria-label="Visionneuse d'image"
+  >
+    <button 
+      class="lightbox-close"
+      (click)="closeLightbox()"
+      aria-label="Fermer"
+    >
+      <app-icon name="close" size="lg" />
+    </button>
+    
+    <button 
+      class="lightbox-nav prev"
+      (click)="$event.stopPropagation(); navigateImage('prev')"
+      aria-label="Image précédente"
+    >
+      <app-icon name="chevron-left" size="xl" />
+    </button>
+    
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <img 
+        [src]="selectedImage()!.src" 
+        [alt]="selectedImage()!.alt"
+      />
+      <p class="lightbox-caption">{{ selectedImage()!.alt }}</p>
+    </div>
+    
+    <button 
+      class="lightbox-nav next"
+      (click)="$event.stopPropagation(); navigateImage('next')"
+      aria-label="Image suivante"
+    >
+      <app-icon name="chevron-right" size="xl" />
+    </button>
+  </div>
+}
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Envie d'un nouveau look ?</h2>
+      <p>Prenez rendez-vous et laissez-nous sublimer votre beauté</p>
+      <a href="tel:0172381004" class="btn-primary">
+        <app-icon name="phone" size="md" />
+        Prendre RDV
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+<footer>
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a routerLink="/" class="logo">
+          <span class="logo-text">Girly</span>
+          <span class="logo-accent">Glow</span>
+        </a>
+        <p class="slogan">Centre de Beauté</p>
+        <p class="description">
+          Votre espace de bien-être à Paris 20e. Épilation, soins du visage, 
+          manucure, massage ayurvédique et henné dans une ambiance chaleureuse.
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <ul>
+          @for (link of navLinks; track link.path) {
+            <li>
+              <a [routerLink]="link.path">{{ link.label }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <address>
+          <div class="contact-item">
+            <app-icon name="location" size="sm" />
+            <div>
+              <p>31 rue du Borrego</p>
+              <p>75020 Paris</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <app-icon name="phone" size="sm" />
+            <div>
+              <a href="tel:0172381004">01 72 38 10 04</a>
+              <a href="tel:0605904101">06 05 90 41 01</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <app-icon name="mail" size="sm" />
+            <a href="mailto:girlyglowbeauty@gmail.com">girlyglowbeauty&#64;gmail.com</a>
+          </div>
+        </address>
+      </div>
+
+      <!-- Horaires -->
+      <div class="footer-hours">
+        <h4>Horaires</h4>
+        <div class="hours-list">
+          @for (hour of hours; track hour.day) {
+            <div class="hour-item">
+              <span class="day">{{ hour.day }}</span>
+              <span class="time">{{ hour.time }}</span>
+            </div>
+          }
+        </div>
+        <div class="metro">
+          <app-icon name="metro" size="sm" />
+          <div>
+            <span>Métro 3bis Saint-Fargeau</span>
+            <span>Métro 11 Télégraphe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social & Copyright -->
+    <div class="footer-bottom">
+      <div class="social">
+        <a 
+          href="https://www.facebook.com/GirlyGlow" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="Suivez-nous sur Facebook"
+        >
+          <app-icon name="facebook" size="md" />
+        </a>
+      </div>
+      <p class="copyright">
+        © {{ currentYear }} Girly Glow. Tous droits réservés.
+      </p>
+      <a routerLink="/mentions-legales" class="legal-link">Mentions légales</a>
+    </div>
+  </div>
+</footer>

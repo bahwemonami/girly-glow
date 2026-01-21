@@ -1,0 +1,71 @@
+<!-- Header -->
+<section class="page-header">
+  <div class="container">
+    <h1>Nos <span class="text-gradient">Prestations</span> & Tarifs</h1>
+    <p>Découvrez notre gamme complète de services pour prendre soin de vous</p>
+  </div>
+</section>
+
+<!-- Filters -->
+<section class="filters-section">
+  <div class="container">
+    <app-category-filter 
+      [categories]="categories()"
+      (categoryChange)="onCategoryChange($event)"
+    />
+  </div>
+</section>
+
+<!-- Prestations List -->
+<section class="prestations-section section">
+  <div class="container">
+    @for (category of filteredCategories(); track category.id) {
+      <div class="category-block" [id]="category.id">
+        <div class="category-header">
+          <span class="category-icon">
+            <app-icon [name]="category.icon" size="xl" />
+          </span>
+          <div class="category-info">
+            <h2>{{ category.name }}</h2>
+            @if (category.description) {
+              <p>{{ category.description }}</p>
+            }
+          </div>
+        </div>
+        
+        <div class="prestations-grid">
+          @for (prestation of category.prestations; track prestation.id) {
+            <app-service-card 
+              [prestation]="prestation"
+              [showDescription]="true"
+            />
+          }
+        </div>
+      </div>
+    } @empty {
+      <div class="no-results">
+        <p>Aucune prestation trouvée.</p>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Envie de prendre rendez-vous ?</h2>
+      <p>Contactez-nous par téléphone ou passez directement au salon</p>
+      <div class="cta-buttons">
+        <a href="tel:0172381004" class="btn-primary">
+          <app-icon name="phone" size="md" />
+          01 72 38 10 04
+        </a>
+        <a href="tel:0605904101" class="btn-secondary">
+          <app-icon name="mobile" size="md" />
+          06 05 90 41 01
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

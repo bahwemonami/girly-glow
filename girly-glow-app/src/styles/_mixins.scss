@@ -1,0 +1,227 @@
+// Girly Glow - Mixins SCSS
+@use 'variables' as *;
+
+// Responsive breakpoints
+@mixin sm {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+// Flexbox
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Boutons professionnels
+@mixin button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-md $spacing-xl;
+  background: $gradient-button;
+  color: $white;
+  font-family: $font-primary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  letter-spacing: $letter-spacing-wide;
+  text-transform: uppercase;
+  border: none;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  transition: all $transition-smooth;
+  box-shadow: $shadow-rose;
+  text-decoration: none;
+
+  &:hover {
+    background: $gradient-button-hover;
+    transform: translateY(-2px);
+    box-shadow: $shadow-rose-lg;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-md $spacing-xl;
+  background: transparent;
+  color: $primary-rose;
+  font-family: $font-primary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  letter-spacing: $letter-spacing-wide;
+  text-transform: uppercase;
+  border: 1px solid $primary-rose;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  transition: all $transition-smooth;
+  text-decoration: none;
+
+  &:hover {
+    background: $primary-rose;
+    color: $white;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin button-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  background: transparent;
+  color: $gray-600;
+  font-family: $font-primary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  border: none;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  transition: all $transition-fast;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-rose;
+    background: $secondary-blush;
+  }
+}
+
+// Cards professionnelles
+@mixin card {
+  background: $white;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  padding: $spacing-lg;
+  transition: all $transition-smooth;
+  border: 1px solid $gray-100;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+    border-color: $secondary-blush;
+  }
+}
+
+// Texte avec accent
+@mixin text-accent {
+  color: $primary-rose;
+}
+
+@mixin text-elegant {
+  font-family: $font-secondary;
+  font-weight: $font-weight-normal;
+  font-style: italic;
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+
+  @include md {
+    padding: 0 $spacing-xl;
+  }
+}
+
+// Section padding
+@mixin section-padding {
+  padding: $spacing-3xl 0;
+
+  @include md {
+    padding: $spacing-4xl 0;
+  }
+}
+
+// Glass effect élégant
+@mixin glass-effect {
+  background: rgba($white, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+// Focus visible
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid $primary-rose;
+    outline-offset: 2px;
+  }
+}
+
+// Titre de section
+@mixin section-title {
+  font-family: $font-secondary;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-normal;
+  color: $gray-800;
+  letter-spacing: $letter-spacing-tight;
+  
+  @include md {
+    font-size: $font-size-4xl;
+  }
+}
+
+// Divider élégant
+@mixin divider {
+  width: 60px;
+  height: 2px;
+  background: $primary-rose;
+  margin: $spacing-lg auto;
+}
+
+// Animated gradient background
+@mixin animated-gradient {
+  background: $gradient-hero;
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+

@@ -1,0 +1,248 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+footer {
+  background: $secondary-cream;
+  padding-top: $spacing-3xl;
+  border-top: 1px solid $gray-100;
+}
+
+.footer-container {
+  @include container;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-2xl;
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include lg {
+    grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+  }
+}
+
+// Brand Section
+.footer-brand {
+  .logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: $spacing-xs;
+    font-family: $font-secondary;
+    font-size: $font-size-2xl;
+    text-decoration: none;
+    margin-bottom: $spacing-sm;
+
+    .logo-text {
+      font-weight: $font-weight-medium;
+      color: $gray-800;
+    }
+
+    .logo-accent {
+      color: $primary-rose;
+      font-style: italic;
+    }
+  }
+
+  .slogan {
+    color: $primary-rose;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wider;
+    margin-bottom: $spacing-md;
+  }
+
+  .description {
+    color: $gray-500;
+    font-size: $font-size-sm;
+    line-height: 1.7;
+  }
+}
+
+// Navigation
+.footer-nav {
+  h4 {
+    color: $gray-800;
+    font-size: $font-size-sm;
+    font-family: $font-primary;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wider;
+    margin-bottom: $spacing-lg;
+  }
+
+  ul {
+    @include flex-column;
+    gap: $spacing-sm;
+  }
+
+  a {
+    color: $gray-500;
+    font-size: $font-size-sm;
+    transition: color $transition-fast;
+    @include focus-visible;
+
+    &:hover {
+      color: $primary-rose;
+    }
+  }
+}
+
+// Contact
+.footer-contact {
+  h4 {
+    color: $gray-800;
+    font-size: $font-size-sm;
+    font-family: $font-primary;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wider;
+    margin-bottom: $spacing-lg;
+  }
+
+  address {
+    font-style: normal;
+    @include flex-column;
+    gap: $spacing-md;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: $spacing-md;
+    align-items: flex-start;
+    color: $primary-rose;
+
+    div {
+      @include flex-column;
+      gap: $spacing-xs;
+    }
+
+    p, a {
+      color: $gray-500;
+      font-size: $font-size-sm;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    a {
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $primary-rose;
+      }
+    }
+  }
+}
+
+// Hours
+.footer-hours {
+  h4 {
+    color: $gray-800;
+    font-size: $font-size-sm;
+    font-family: $font-primary;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wider;
+    margin-bottom: $spacing-lg;
+  }
+
+  .hours-list {
+    @include flex-column;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-lg;
+  }
+
+  .hour-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: $font-size-sm;
+    color: $gray-500;
+
+    .day {
+      font-weight: $font-weight-medium;
+      color: $gray-600;
+    }
+
+    .time {
+      color: $primary-rose;
+    }
+  }
+
+  .metro {
+    display: flex;
+    gap: $spacing-md;
+    align-items: flex-start;
+    padding: $spacing-md;
+    background: $white;
+    border-radius: $border-radius-md;
+    color: $primary-rose;
+
+    div {
+      @include flex-column;
+      gap: $spacing-xs;
+    }
+
+    span {
+      font-size: $font-size-sm;
+      color: $gray-500;
+    }
+  }
+}
+
+// Bottom
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-xl 0;
+  margin-top: $spacing-2xl;
+  border-top: 1px solid $gray-200;
+
+  @include md {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .social {
+    display: flex;
+    gap: $spacing-md;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: $white;
+      color: $primary-rose;
+      border-radius: $border-radius-full;
+      border: 1px solid $gray-200;
+      transition: all $transition-fast;
+      @include focus-visible;
+
+      &:hover {
+        background: $primary-rose;
+        color: $white;
+        border-color: $primary-rose;
+      }
+    }
+  }
+
+  .copyright {
+    color: $gray-400;
+    font-size: $font-size-sm;
+    text-align: center;
+  }
+
+  .legal-link {
+    color: $gray-400;
+    font-size: $font-size-sm;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $primary-rose;
+    }
+  }
+}

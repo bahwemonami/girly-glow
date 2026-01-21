@@ -1,0 +1,153 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+// Page Header
+.page-header {
+  background: $gradient-hero;
+  padding: calc($spacing-4xl + 80px) 0 $spacing-3xl;
+  text-align: center;
+  color: $white;
+
+  h1 {
+    color: $white;
+    margin-bottom: $spacing-md;
+
+    .text-gradient {
+      color: $secondary-pink-light;
+      -webkit-text-fill-color: $secondary-pink-light;
+    }
+  }
+
+  p {
+    font-size: $font-size-lg;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// Filters
+.filters-section {
+  background: $white;
+  padding: $spacing-lg 0;
+  position: sticky;
+  top: 80px;
+  z-index: 50;
+  box-shadow: $shadow-sm;
+}
+
+// Prestations
+.prestations-section {
+  background: $secondary-pink-bg;
+}
+
+.category-block {
+  margin-bottom: $spacing-3xl;
+  scroll-margin-top: 180px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 2px solid $primary-magenta;
+
+  .category-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+  }
+
+  .category-info {
+    h2 {
+      color: $gray-dark;
+      margin-bottom: $spacing-xs;
+    }
+
+    p {
+      color: $gray-medium;
+      font-size: $font-size-base;
+      margin: 0;
+    }
+  }
+}
+
+.prestations-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include xl {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.no-results {
+  text-align: center;
+  padding: $spacing-3xl;
+  color: $gray-medium;
+}
+
+// CTA Section
+.cta-section {
+  background: $gradient-hero;
+  padding: $spacing-3xl 0;
+  text-align: center;
+  color: $white;
+
+  .cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    color: $white;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    opacity: 0.9;
+    margin-bottom: $spacing-xl;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    justify-content: center;
+
+    @include sm {
+      flex-direction: row;
+    }
+  }
+
+  .btn-primary {
+    @include button-primary;
+    gap: $spacing-sm;
+  }
+
+  .btn-secondary {
+    @include button-secondary;
+    border-color: $white;
+    color: $white;
+    gap: $spacing-sm;
+
+    &:hover {
+      background: $white;
+      color: $primary-magenta;
+    }
+  }
+}
