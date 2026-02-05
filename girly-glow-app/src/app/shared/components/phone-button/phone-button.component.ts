@@ -7,13 +7,15 @@ import { IconComponent } from '../icon/icon.component';
   imports: [IconComponent],
   template: `
     <a 
-      href="tel:0172381004" 
+      href="https://www.treatwell.fr/salon/girly-glow-paris-20/?utm_source=google&utm_medium=rwg&hl=fr-FR&gei=wdaEaejcIfDw7M8P3LX1qA0&rwg_token=AFd1xnFzWjvwysGHpSxF803fXZqHfuq6zbD2Kv8xyN7fpih_vRYRpgfqUTEjVM0SpdYsAX9RfRiOuSPAlCPexycxxQz7aSEKPQ%3D%3D" 
+      target="_blank"
+      rel="noopener noreferrer"
       class="phone-button"
       [class.visible]="isVisible()"
-      aria-label="Appeler Girly Glow"
+      aria-label="Prendre rendez-vous sur Treatwell"
     >
-      <app-icon name="phone" size="md" />
-      <span class="text">Appeler</span>
+      <app-icon name="calendar" size="md" />
+      <span class="text">RDV</span>
     </a>
   `,
   styles: [`
