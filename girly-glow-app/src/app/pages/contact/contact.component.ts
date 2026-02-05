@@ -17,6 +17,15 @@ export class ContactComponent {
   salonInfo = this.prestationsService.salonInfo;
   isSubmitting = signal(false);
   isSubmitted = signal(false);
+
+  // Image aléatoire pour le header
+  headerImage = this.getRandomManucureImage();
+
+  private getRandomManucureImage(): string {
+    const imageCount = 34; // Nombre total d'images disponibles
+    const randomIndex = Math.floor(Math.random() * imageCount) + 1;
+    return `/images/manucure/galerie-manucure-${randomIndex}.jpg`;
+  }
   
   contactForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],

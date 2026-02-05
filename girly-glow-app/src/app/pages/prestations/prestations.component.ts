@@ -18,6 +18,15 @@ export class PrestationsComponent {
   categories = this.prestationsService.categories;
   selectedCategory = signal('all');
 
+  // Image aléatoire pour le header
+  headerImage = this.getRandomManucureImage();
+
+  private getRandomManucureImage(): string {
+    const imageCount = 34; // Nombre total d'images disponibles
+    const randomIndex = Math.floor(Math.random() * imageCount) + 1;
+    return `/images/manucure/galerie-manucure-${randomIndex}.jpg`;
+  }
+
   filteredCategories = computed(() => {
     const selected = this.selectedCategory();
     if (selected === 'all') {

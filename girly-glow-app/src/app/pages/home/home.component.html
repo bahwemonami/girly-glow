@@ -1,6 +1,38 @@
 <!-- Hero Section -->
 <section class="hero">
   <div class="hero-bg"></div>
+  
+  <!-- Carrousel de manucure -->
+  <div class="hero-carousel">
+    <div class="carousel-container">
+      @for (image of manucureImages; track image.src; let i = $index) {
+        <div 
+          class="carousel-slide" 
+          [class.active]="currentImageIndex() === i"
+          [attr.aria-hidden]="currentImageIndex() !== i"
+        >
+          <img 
+            [src]="image.src" 
+            [alt]="image.alt"
+            loading="eager"
+          />
+        </div>
+      }
+    </div>
+    
+    <!-- Indicateurs du carrousel -->
+    <div class="carousel-indicators">
+      @for (image of manucureImages; track image.src; let i = $index) {
+        <button
+          class="indicator"
+          [class.active]="currentImageIndex() === i"
+          (click)="goToImage(i)"
+          [attr.aria-label]="'Aller à l\'image ' + (i + 1)"
+        ></button>
+      }
+    </div>
+  </div>
+
   <div class="hero-content">
     <span class="hero-badge">Centre de Beauté</span>
     <h1>
